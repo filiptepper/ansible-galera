@@ -23,7 +23,8 @@ skip-name-resolve
 lc-messages-dir         = /usr/share/mysql
 skip-external-locking
 key_buffer              = 16M
-max_connections         = 100
+max_connections         = {{ max_connections }}
+max_user_connections    = {{ max_user_connections }}
 max_allowed_packet      = 16M
 thread_stack            = 192K
 thread_cache_size       = 8
@@ -78,7 +79,7 @@ innodb_autoinc_lock_mode        = 2
 # innodb_locks_unsafe_for_binlog  = 1
 innodb_file_per_table
 innodb_thread_concurrency       = 0
-innodb_buffer_pool_size         = 50M
+innodb_buffer_pool_size         = {{ innodb_buffer_pool_size }}
 innodb_log_buffer_size          = 64M
 # innodb_flush_method             = O_DIRECT
 innodb_log_file_size            = 500M

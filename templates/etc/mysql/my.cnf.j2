@@ -66,7 +66,7 @@ wsrep_cluster_name      = percona-cluster
 {%- if not bootstrap_cluster %}
   {%- for node in groups['galera_cluster'] %}
     {% if hostvars[node].ansible_default_ipv4.address != ansible_eth0.ipv4.address %}
-      {%- set _ = cluster_members.append(ansible_eth0.ipv4.address) -%}
+      {%- set _ = cluster_members.append(hostvars[node].galera_ip) -%}
     {% endif -%}
   {% endfor -%}
 {% endif -%}
